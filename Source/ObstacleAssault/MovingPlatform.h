@@ -22,11 +22,17 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+private:
+
 	void SetEndPoints();
 	void Move(float DeltaTime);
+	void Rotate(float DeltaTime);
 
 	UPROPERTY(EditAnywhere, CATEGORY="Movement Properties") double MovingDistance = 700.0;
 	UPROPERTY(EditAnywhere, CATEGORY="Movement Properties") FVector Velocity = {0, 0, -200};
 	FVector EndPoints[2];
 	bool EndPointIndex = 0;
+
+	UPROPERTY(EditAnywhere, CATEGORY = "Rotation Properties") FRotator Rotation;
 };

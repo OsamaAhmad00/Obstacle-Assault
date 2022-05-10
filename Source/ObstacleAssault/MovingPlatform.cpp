@@ -22,6 +22,7 @@ void AMovingPlatform::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	Move(DeltaTime);
+	Rotate(DeltaTime);
 }
 
 void AMovingPlatform::SetEndPoints()
@@ -46,4 +47,9 @@ void AMovingPlatform::Move(float DeltaTime)
 	}
 
 	SetActorLocation(location);
+}
+
+void AMovingPlatform::Rotate(float DeltaTime)
+{
+	SetActorRotation(GetActorRotation() + (Rotation * DeltaTime));
 }
